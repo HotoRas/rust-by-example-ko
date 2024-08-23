@@ -4,7 +4,7 @@ An alternative to boxing errors is to wrap them in your own error type.
 
 ```rust,editable
 use std::error;
-use std::error::Error as _;
+use std::error::Error;
 use std::num::ParseIntError;
 use std::fmt;
 
@@ -92,5 +92,9 @@ for you.
 
 [`From::from`][from] and [`Enums`][enums]
 
+
+[`Crates for handling errors`][crates-errors]
+
 [from]: https://doc.rust-lang.org/std/convert/trait.From.html
 [enums]: ../../custom_types/enum.md
+[crates-errors]: https://crates.io/keywords/error-handling

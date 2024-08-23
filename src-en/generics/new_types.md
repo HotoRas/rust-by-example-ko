@@ -25,28 +25,29 @@ impl Days {
     }
 }
 
-fn old_enough(age: &Years) -> bool {
+fn is_adult(age: &Years) -> bool {
     age.0 >= 18
 }
 
 fn main() {
-    let age = Years(5);
+    let age = Years(25);
     let age_days = age.to_days();
-    println!("Old enough {}", old_enough(&age));
-    println!("Old enough {}", old_enough(&age_days.to_years()));
-    // println!("Old enough {}", old_enough(&age_days));
+    println!("Is an adult? {}", is_adult(&age));
+    println!("Is an adult? {}", is_adult(&age_days.to_years()));
+    // println!("Is an adult? {}", is_adult(&age_days));
 }
 ```
 
 Uncomment the last print statement to observe that the type supplied must be `Years`.
 
-To obtain the `newtype`'s value as the base type, you may use tuple syntax like so:
+To obtain the `newtype`'s value as the base type, you may use the tuple or destructuring syntax like so:
 ```rust, editable
 struct Years(i64);
 
 fn main() {
     let years = Years(42);
-    let years_as_primitive: i64 = years.0;
+    let years_as_primitive_1: i64 = years.0; // Tuple
+    let Years(years_as_primitive_2) = years; // Destructuring
 }
 ```
 

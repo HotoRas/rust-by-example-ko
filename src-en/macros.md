@@ -16,12 +16,12 @@ macro_rules! say_hello {
     // `()` indicates that the macro takes no argument.
     () => {
         // The macro will expand into the contents of this block.
-        println!("Hello!");
+        println!("Hello!")
     };
 }
 
 fn main() {
-    // This call will expand into `println!("Hello");`
+    // This call will expand into `println!("Hello!")`
     say_hello!()
 }
 ```
@@ -37,4 +37,4 @@ So why are macros useful?
 
 3. Variadic interfaces. Sometimes you want to define an interface that takes a
    variable number of arguments. An example is `println!` which could take any
-   number of arguments, depending on the format string!. (More on this later)
+   number of arguments, depending on the format string. (More on this later)

@@ -41,7 +41,7 @@ or for any other generic containers. `fmt::Debug` must then be used for these
 generic cases.
 
 This is not a problem though because for any new *container* type which is
-*not* generic,`fmt::Display` can be implemented.
+*not* generic, `fmt::Display` can be implemented.
 
 ```rust,editable
 use std::fmt; // Import `fmt`
@@ -66,7 +66,7 @@ struct Point2D {
     y: f64,
 }
 
-// Similarly, implement `Display` for `Point2D`
+// Similarly, implement `Display` for `Point2D`.
 impl fmt::Display for Point2D {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         // Customize so only `x` and `y` are denoted.
@@ -100,15 +100,14 @@ fn main() {
 }
 ```
 
-So, `fmt::Display` has been implemented but `fmt::Binary` has not, and
-therefore cannot be used. `std::fmt` has many such [`traits`][traits] and
-each requires its own implementation. This is detailed further in
-[`std::fmt`][fmt].
+So, `fmt::Display` has been implemented but `fmt::Binary` has not, and therefore
+cannot be used. `std::fmt` has many such [`traits`][traits] and each requires
+its own implementation. This is detailed further in [`std::fmt`][fmt].
 
 ### Activity
 
 After checking the output of the above example, use the `Point2D` struct as a
-guide to add a Complex struct to the example. When printed in the same
+guide to add a `Complex` struct to the example. When printed in the same
 way, the output should be:
 
 ```txt
@@ -125,5 +124,5 @@ Debug: Complex { real: 3.3, imag: 7.2 }
 [fmt]: https://doc.rust-lang.org/std/fmt/
 [macros]: ../../macros.md
 [structs]: ../../custom_types/structs.md
-[traits]: ../../trait.md
+[traits]: https://doc.rust-lang.org/std/fmt/#formatting-traits
 [use]: ../../mod/use.md

@@ -20,7 +20,9 @@ fn borrow_i32(borrowed_i32: &i32) {
 }
 
 fn main() {
-    // Create a boxed i32, and a stacked i32
+    // Create a boxed i32 in the heap, and a i32 on the stack
+    // Remember: numbers can have arbitrary underscores added for readability
+    // 5_i32 is the same as 5i32
     let boxed_i32 = Box::new(5_i32);
     let stacked_i32 = 6_i32;
 
@@ -43,7 +45,7 @@ fn main() {
         // `_ref_to_i32` goes out of scope and is no longer borrowed.
     }
 
-    // `boxed_i32` can now give up ownership to `eat_box` and be destroyed
+    // `boxed_i32` can now give up ownership to `eat_box_i32` and be destroyed
     eat_box_i32(boxed_i32);
 }
 ```

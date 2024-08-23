@@ -60,16 +60,19 @@ within.
 * `iter` - This borrows each element of the collection through each iteration.
   Thus leaving the collection untouched and available for reuse after the loop.
 
-```rust, editable
+```rust,editable
 fn main() {
     let names = vec!["Bob", "Frank", "Ferris"];
 
     for name in names.iter() {
         match name {
             &"Ferris" => println!("There is a rustacean among us!"),
+            // TODO ^ Try deleting the & and matching just "Ferris"
             _ => println!("Hello {}", name),
         }
     }
+    
+    println!("names: {:?}", names);
 }
 ```
 
@@ -77,7 +80,7 @@ fn main() {
   data is provided. Once the collection has been consumed it is no longer
   available for reuse as it has been 'moved' within the loop.
 
-```rust, editable
+```rust,editable,ignore,mdbook-runnable
 fn main() {
     let names = vec!["Bob", "Frank", "Ferris"];
 
@@ -87,13 +90,16 @@ fn main() {
             _ => println!("Hello {}", name),
         }
     }
+    
+    println!("names: {:?}", names);
+    // FIXME ^ Comment out this line
 }
 ```
 
 * `iter_mut` - This mutably borrows each element of the collection, allowing for
   the collection to be modified in place.
 
-```rust, editable
+```rust,editable
 fn main() {
     let mut names = vec!["Bob", "Frank", "Ferris"];
 

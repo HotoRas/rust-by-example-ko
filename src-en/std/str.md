@@ -1,6 +1,6 @@
 # Strings
 
-There are two types of strings in Rust: `String` and `&str`.
+The two most used string types in Rust are `String` and `&str`.
 
 A `String` is stored as a vector of bytes (`Vec<u8>`), but guaranteed to
 always be a valid UTF-8 sequence. `String` is heap allocated, growable and not
@@ -69,7 +69,7 @@ This way you can add any character to your string, even unprintable ones
 and ones that you don't know how to type. If you want a literal backslash,
 escape it with another one: `\\`
 
-String or character literal delimiters occuring within a literal must be escaped: `"\""`, `'\''`.
+String or character literal delimiters occurring within a literal must be escaped: `"\""`, `'\''`.
 
 ```rust,editable
 fn main() {
@@ -106,7 +106,7 @@ fn main() {
     println!("{}", quotes);
 
     // If you need "# in your string, just use more #s in the delimiter.
-    // There is no limit for the number of #s you can use.
+    // You can use up to 255 #s.
     let longer_delimiter = r###"A string with "# in it. And even "##!"###;
     println!("{}", longer_delimiter);
 }

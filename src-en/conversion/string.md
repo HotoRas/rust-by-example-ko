@@ -28,15 +28,15 @@ fn main() {
 
 ## Parsing a String
 
-One of the more common types to convert a string into is a number. The idiomatic
-approach to this is to use the [`parse`] function and either to arrange for
-type inference or to specify the type to parse using the 'turbofish' syntax.
-Both alternatives are shown in the following example.
+It's useful to convert strings into many types, but one of the more common string
+operations is to convert them from string to number. The idiomatic approach to
+this is to use the [`parse`] function and either to arrange for type inference or
+to specify the type to parse using the 'turbofish' syntax. Both alternatives are
+shown in the following example.
 
-This will convert the string into the type specified so long as the [`FromStr`]
+This will convert the string into the type specified as long as the [`FromStr`]
 trait is implemented for that type. This is implemented for numerous types
-within the standard library. To obtain this functionality on a user defined type
-simply implement the [`FromStr`] trait for that type.
+within the standard library.
 
 ```rust,editable
 fn main() {
@@ -45,6 +45,35 @@ fn main() {
 
     let sum = parsed + turbo_parsed;
     println!("Sum: {:?}", sum);
+}
+```
+
+To obtain this functionality on a user defined type simply implement the
+[`FromStr`] trait for that type.
+
+```rust,editable
+use std::num::ParseIntError;
+use std::str::FromStr;
+
+#[derive(Debug)]
+struct Circle {
+    radius: i32,
+}
+
+impl FromStr for Circle {
+    type Err = ParseIntError;
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        match s.trim().parse() {
+            Ok(num) => Ok(Circle{ radius: num }),
+            Err(e) => Err(e),
+        }
+    }
+}
+
+fn main() {
+    let radius = "    3 ";
+    let circle: Circle = radius.parse().unwrap();
+    println!("{:?}", circle);
 }
 ```
 

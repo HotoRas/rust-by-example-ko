@@ -11,8 +11,8 @@ To create a new Rust project,
 # A binary
 cargo new foo
 
-# OR A library
-cargo new --lib foo
+# A library
+cargo new --lib bar
 ```
 
 For the rest of this chapter, let's assume we are making a binary, rather than
@@ -21,14 +21,19 @@ a library, but all of the concepts are the same.
 After the above commands, you should see a file hierarchy like this:
 
 ```txt
-foo
-├── Cargo.toml
-└── src
-    └── main.rs
+.
+├── bar
+│   ├── Cargo.toml
+│   └── src
+│       └── lib.rs
+└── foo
+    ├── Cargo.toml
+    └── src
+        └── main.rs
 ```
 
-The `main.rs` is the root source file for your new project -- nothing new there.
-The `Cargo.toml` is the config file for `cargo` for this project (`foo`). If you
+The `main.rs` is the root source file for your new `foo` project -- nothing new there.
+The `Cargo.toml` is the config file for `cargo` for this project. If you
 look inside it, you should see something like this:
 
 ```toml
@@ -56,8 +61,7 @@ lots of great packages on [crates.io](https://crates.io) (the official Rust
 package registry). One popular choice is [clap](https://crates.io/crates/clap).
 As of this writing, the most recent published version of `clap` is `2.27.1`. To
 add a dependency to our program, we can simply add the following to our
-`Cargo.toml` under `[dependencies]`: `clap = "2.27.1"`.  And of course, `extern
-crate clap` in `main.rs`, just like normal. And that's it! You can start using
+`Cargo.toml` under `[dependencies]`: `clap = "2.27.1"`. And that's it! You can start using
 `clap` in your program.
 
 `cargo` also supports [other types of dependencies][dependencies]. Here is just

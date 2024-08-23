@@ -1,6 +1,6 @@
 # `create`
 
-The `create` static method opens a file in write-only mode. If the file
+The `create` function opens a file in write-only mode. If the file
 already existed, the old content is destroyed. Otherwise, a new file is
 created.
 
@@ -53,6 +53,6 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 (As in the previous example, you are encouraged to test this example under
 failure conditions.)
 
-There is [`OpenOptions`] struct that can be used to configure how a file is opened.
+The [`OpenOptions`] struct can be used to configure how a file is opened.
 
 [`OpenOptions`]: https://doc.rust-lang.org/std/fs/struct.OpenOptions.html

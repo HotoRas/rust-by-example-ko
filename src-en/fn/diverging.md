@@ -21,8 +21,8 @@ fn some_fn() {
 }
 
 fn main() {
-    let a: () = some_fn();
-    println!("This function returns and you can see this line.")
+    let _a: () = some_fn();
+    println!("This function returns and you can see this line.");
 }
 ```
 
@@ -37,10 +37,10 @@ fn main() {
 }
 ```
 
-Although this might seem like an abstract concept, it is in fact very useful and
-often handy. The main advantage of this type is that it can be cast to any other
-one and therefore used at places where an exact type is required, for instance
-in `match` branches. This allows us to write code like this:
+Although this might seem like an abstract concept, it is actually very useful and
+often handy. The main advantage of this type is that it can be cast to any other 
+type, making it versatile in situations where an exact type is required, such as 
+in match branches. This flexibility allows us to write code like this:
 
 ```rust
 fn main() {
@@ -66,4 +66,4 @@ fn main() {
 ```
 
 It is also the return type of functions that loop forever (e.g. `loop {}`) like
-network servers or functions that terminates the process (e.g. `exit()`).
+network servers or functions that terminate the process (e.g. `exit()`).
