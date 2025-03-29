@@ -28,7 +28,7 @@ jobs:
         #with:
         #  github_token: ${{ secrets.GITHUB_TOKEN }}
         #  publish_dir: ./book
-        uses: actions/upload-artifact@4
+        uses: actions/upload-pages-artifact@3
         with:
           path: ./book
           
