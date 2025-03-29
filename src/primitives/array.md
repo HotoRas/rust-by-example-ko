@@ -45,7 +45,24 @@ fn main() {
     println!("배열의 일부를 슬라이스로 빌립니다");
     analyze_slice(&ys[1 .. 4]);
 
-    // 아래 문장에서는 index out of bounds 오류가 발생합니다.
+    // 빈 슬라이스 `&[]`의 예제입니다.
+    let empty_array: [u32; 0] = []; // 역주) 타입이 없으면 컴파일되지 않습니다
+    assert_eq!(&empty_array, &[]); // 역주) 이 매크로는 같으면 계속하고, 다르면 패닉을 리턴합니다.
+    assert_eq!(&empty_array, &[][..]);
+
+    // 배열은 `.get`으로 안전하게 접근할 수 있으며, `Option`을 리턴합니다.
+    // 아래와 같이 match로 접근해 처리할 수도 있고,
+    for i in 0..xs.len() + 1 { // 변수 하나만큼 멀리 가버렸어요!
+        match xs.get(i) {
+            Some(값) => println!("{}: {}", i, 값),
+            None => println!("천천히요! {}는 너무 멀어요!", i),
+        }
+    }
+    // 프로그램을 멈추게 하고 싶으면 `.expect()`를 활용할 수도 있습니다.
+
+    // 아래 문장에서는 index out of bounds 컴파일-시간 오류가 발생합니다.
     println!("{}", xs[5]);
+    // 범위 바깥을 인덱싱하려고 하면 index out of bounds 실행-시간 오류가 발생합니다.
+    println!("{}", xs[..][5]);
 }
 ```

@@ -1,6 +1,7 @@
 # 형식을 지정하는 출력
 
-러스트에서 출력 관련 기능은 [`std::fmt`][fmt]에 정의된 몇개의 [`macro`][macros]로 처리합니다.
+러스트에서 출력 관련 기능은 [`std::fmt`][fmt]에 정의된 몇 개의
+[`macro`][macros]로 처리합니다.
 
 * `format!`: 형식 지정 문자열을 [`String`][string] 에 출력합니다.
 * `print!`: `format!` 과 동일하지만, 출력을 콘솔 (io::stdout) 에 합니다.
@@ -36,13 +37,22 @@ fn main() {
 
     // `:` 의 뒤에 특별한 형식을 지정할 수도 있습니다.
     println!("{:b}명의 사람들 중 {}명 만이 이진법을 알고, 나머지 반은 모른다", 2, 1);
+    println!("10진수:                {}",   69420); // 69420
+    println!(" 2진수 (binary):       {:b}", 69420); // 10000111100101100
+    println!(" 8진수 (octal):        {:o}", 69420); // 207454
+    println!("16진수 (hexadecimal):  {:x}", 69420); // 10f2c
 
     // 폭을 지정해서 오른편 정렬을 할 수도 있습니다. 다음 코드의 출력은
     // "     1" 이 됩니다. 즉, 공백문자 5개가 나온 후에 "1"이 출력됩니다.
     println!("{number:>width$}", number=1, width=6);
+    //println!("{number:>5}", number=1);
 
     // 공백대신 숫자 0을 넣을 수도 있습니다. 다음 코드는 "000001"을 출력합니다.
-    println!("{number:>0width$}", number=1, width=6);
+    println!("{number:0>width$}", number=1, width=6);
+    //println!("{number:0>5}", number=1); // 00001
+    // 반대쪽에 넣을 수도 있습니다. 다음 코드는 "100000"을 출력합니다.
+    println!("{number:0<width$}", number=1, width=6);
+    //println!("{number:0<5}", number=1); // 10000
 
     // 역주) 역시 한글도 잘 됩니다.
     println!("{숫자:>폭$}", 숫자=1, 폭=6);
@@ -52,14 +62,28 @@ fn main() {
     println!("내 이름은 {0}요. {1} {0}.", "본드");
     // FIXME ^ 위 코드에서 빠진 인자 "제임스"를 추가해주세요.
 
+    // fmt::Display를 정의한 타입만 `{}`를 이용해 출력할 수 있습니다.
+    // 사용자 정의 타입은 기본적으로 정의하고 있지 않고요.
+
     // 한개의 `i32` 를 가지고 있는 `Structure`라는 구조체를 생성해봅니다.
     #[allow(dead_code)]
     struct Structure(i32);
 
-    // 하지만, 이런 사용자 정의 자료형을 출력하려면 추가 작업이 필요합니다.
-    // 다음 코드는 동작하지 않을겁니다.
+    // `Structure`가 fmt::Display를 가지고 있지 않기 때문에, 이 코드는 컴파일조차
+    // 되지 않습니다.
     println!("이 구조체 {}는 출력되지 않을겁니다.", Structure(3));
     // FIXME ^ 위 코드를 코멘트로 막아주세요.
+
+    // 러스트 1.58부터, 근처의 변수로부터 매개변수를 가져올 수 있습니다.
+    // 여기에서는 위에서처럼 "    1", 1 앞에 4개의 공백을 출력합니다.
+    let number: f64 = 1.0;
+    let width: usize = 5;
+    println!("{number:>width$}");
+
+    // 역주) 역시, 한글도 잘 됩니다. 그리고 사실 변수명도 한글로 잘 됩니다.
+    let 숫자: f64 = 1.0;
+    let 폭: usize = 6;
+    println!("{숫자:->폭$}"); // -----1
 }
 ```
 
@@ -75,17 +99,19 @@ fn main() {
 만약 `fmt::Display` 트레잇을 구현해주면 자동으로 [`ToString`] 트레잇이 구현되고, 
 해당 자료형을 [`String`][string]으로 [`변환(convert)`][convert] 할 수 있게됩니다.
 
+중간의 `#[allow(dead_code)]`는 바로 다음에 오는 모듈에만 적용되는 [attribute]입니다.
+
 ### Activities
 
  * 위 코드에서 두 개의 이슈(FIXME 라고 된 부분들)를 수정하고 오류없이 실행되게 해보세요.
  * `println!` 매크로의 소수점 표시 기능을 이용해서 `원주율의 근사치는 3.142이다.` 를 출력해보세요.
-   위한 파이값은 `let pi = 3.141592` 라고 정의해주세요. (힌트: [`std::fmt`][fmt] 
+   이를 위한 파이값은 `let pi = 3.141592` 라고 정의해주세요. (힌트: [`std::fmt`][fmt] 
    문서에서 소수점 표시(Precision) 항목을 참고하세요.)
 
 ### 참고:
 
 [`std::fmt`][fmt], [`매크로(macros)`][macros], [`구조체(struct)`][structs], 
-[`트레잇(traits)`][traits]
+[`트레잇(traits)`][traits], [`미사용 코드(dead_code)`][dead_code]
 
 [fmt]: https://doc.rust-lang.org/std/fmt/
 [macros]: ../macros.md
@@ -94,3 +120,5 @@ fn main() {
 [traits]: https://doc.rust-lang.org/std/fmt/#formatting-traits
 [`ToString`]: https://doc.rust-lang.org/std/string/trait.ToString.html
 [convert]: ../conversion/string.md
+[attribute]: ../attribute.md
+[dead_code]: ../attribute/unused.md
