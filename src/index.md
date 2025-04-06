@@ -1,6 +1,6 @@
 # 예제로 배우는 러스트 (Rust by Example) 한국어판
 
-러스트는 안전성과 속도 그리고, 병렬 처리에 초점을 맞춘 최신 시스템 프로그래밍 언어
+[러스트][rust]는 안전성과 속도 그리고, 병렬 처리에 초점을 맞춘 최신 시스템 프로그래밍 언어
 입니다. 러스트는 이를 위해 가비지 컬렉션 기술을 사용하지 않고 메모리 안전성을 지원합니다.
 
 이 문서는 실행 가능한 예제들로 러스트의 여러가지 개념과 표준 라이브러리를 소개합니다. 
@@ -19,13 +19,13 @@
 
 - [변수 바인딩](variable_bindings.md) - mutable bindings, scope, shadowing.
 
-- [자료형](types.md) - Learn about changing and defining types.
+- [자료형](types.md) - 타입을 변경하고 정의하는 방법에 대해 배워 봅니다.
 
-- [형변환](conversion.md)
+- [형변환](conversion.md) - String, integer, float와 같은 서로 다른 타입으로 변환해 봅니다.
 
-- [표현식](expression.md)
+- [표현식](expression.md) - 표현식과 이를 이용하는 방법에 대해 배워 봅니다.
 
-- [제어문](flow_control.md) - `if`/`else`, `for`, and others.
+- [제어문](flow_control.md) - `if`/`else`, `for`, 그리고 여러 다른 것들.
 
 - [함수](fn.md) - Learn about Methods, Closures and High Order Functions.
 
@@ -43,7 +43,7 @@
 
 - [Traits](trait.md) - A trait is a collection of methods defined for an unknown type: `Self`
 
-- [Macros](macros.md)
+- [Macros](macros.md) - Macros are a way of writing code that writes other code, which is known as metaprogramming.
 
 - [Error handling](error.md) - Learn Rust way of handling failures.
 
@@ -53,9 +53,9 @@
 
 - [Testing](testing.md) - All sorts of testing in Rust.
 
-- [Unsafe Operations](unsafe.md)
+- [Unsafe Operations](unsafe.md) - "안전하지 않은" 동작 블록에 진입하는 방법을 알아봅니다.
 
-- [Compatibility](compatibility.md)
+- [Compatibility](compatibility.md) - 러스트의 발전과 가능한 호환성 문제를 다룹니다.
 
 - [Meta](meta.md) - Documentation, Benchmarking.
 

@@ -76,13 +76,17 @@ RGB (0, 0, 0) 0x000000
 ```
 
 다음을 참고하시면 구현할 수 있습니다. :
+ * RGB 색공간에서 색상을 계산하는 공식은 `RGB = (R*65536)+(G*256)+B`입니다.
+ 여기서 R은 빨강, G는 초록, B는 파란색 성분입니다. 더 자세히는
+ [RGB 색 포맷과 계산][rgb_color]에서 확인하세요.
  * [각각의 색상을 한번 이상 표시하기][named_parameters],
- * `:02` 로 [0을 붙여서 2글자로 출력하기][fmt_width].
+ * `:0>2` 로 [0을 붙여서 2글자로 출력하기][fmt_width].
 
 ### 참고:
 
 [`std::fmt`][fmt]
 
+[rgb_color]: https://www.rapidtables.com/web/cololr/RGB_Color.html#rgb-format
 [named_parameters]: https://doc.rust-lang.org/std/fmt/#named-parameters
 [deadbeef]: https://en.wikipedia.org/wiki/Deadbeef#Magic_debug_values
 [fmt]: https://doc.rust-lang.org/std/fmt/
