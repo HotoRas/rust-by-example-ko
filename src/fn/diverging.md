@@ -1,5 +1,11 @@
 # Diverging functions
 
+> 🛈 안정화된 버전: 러스트 1.85 (2024 에디션)
+>
+> 🛈 다음과 같이 컴파일해 타겟 에디션을 지정할 수 있습니다:
+> `rustc --edition=2024 main.rs`  
+>   혹은 `Cargo.toml`에 `edition = 2024`를 지정하세요.
+
 Diverging functions never return. They are marked using `!`, which is an empty type.
 
 ```rust
@@ -30,6 +36,7 @@ As opposed to this function, which will never return the control back to the cal
 
 ```rust,ignore
 #![feature(never_type)]
+// TODO : ^ Remove this on Rust 2024
 
 fn main() {
     let x: ! = panic!("This call never returns.");

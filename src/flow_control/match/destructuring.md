@@ -13,4 +13,4 @@
 [refs]: destructuring/destructure_pointers.md
 [struct]: destructuring/destructure_structures.md
 [tuple]: destructuring/destructure_tuple.md
-[slice]: destructing/destructure_slice.md
+[slice]: destructuring/destructure_slice.md

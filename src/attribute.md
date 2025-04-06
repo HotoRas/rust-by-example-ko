@@ -1,6 +1,6 @@
-# Attributes
+# 속성
 
-Attribute는 모듈, 크레이트 또는 아이템에 붙이는 메타데이터로,
+속성은 모듈, 크레이트 또는 아이템에 붙이는 메타데이터로,
 다음과 같은 상황에 사용할 수 있습니다:
 
 <!-- TODO: Link these to their respective examples -->
@@ -12,9 +12,9 @@ Attribute는 모듈, 크레이트 또는 아이템에 붙이는 메타데이터�
 * 외부 라이브러리에 링크
 * 함수를 유닛의 테스트로 표시
 * 함수를 벤치마크의 일부로 표시
-* [Attribute화 매크로][macros]
+* [속성화 매크로][macros]
 
-Attribute는 `#[outer_attribute]`나 `#![inner_attribute]`로 표기하며,
+속성은 `#[outer_attribute]`나 `#![inner_attribute]`와 같이 표기하며,
 각각에 따라 적용하는 지점이 다릅니다.
 
 * `#[outer_attribute]`는 이어지는 [항목][item]에 바로 적용됩니다.
@@ -41,7 +41,7 @@ Attribute는 `#[outer_attribute]`나 `#![inner_attribute]`로 표기하며,
   }
   ```
 
-Attribute는 여러 방식으로 인수를 받을 수 있습니다:
+속성은 여러 방식으로 인수를 받을 수 있습니다:
 
 * `#[attribute = "value"]`
 * `#[attribute(key = "value")]`

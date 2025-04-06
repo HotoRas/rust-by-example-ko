@@ -99,7 +99,7 @@ fn main() {
 만약 `fmt::Display` 트레잇을 구현해주면 자동으로 [`ToString`] 트레잇이 구현되고, 
 해당 자료형을 [`String`][string]으로 [`변환(convert)`][convert] 할 수 있게됩니다.
 
-중간의 `#[allow(dead_code)]`는 바로 다음에 오는 모듈에만 적용되는 [attribute]입니다.
+중간의 `#[allow(dead_code)]`는 바로 다음에 오는 모듈에만 적용되는 [속성][attribute]입니다.
 
 ### Activities
 

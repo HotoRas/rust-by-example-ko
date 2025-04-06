@@ -88,7 +88,7 @@ RGB (0, 0, 0) 0x000000
 
 [rgb_color]: https://www.rapidtables.com/web/cololr/RGB_Color.html#rgb-format
 [named_parameters]: https://doc.rust-lang.org/std/fmt/#named-parameters
-[deadbeef]: https://en.wikipedia.org/wiki/Deadbeef#Magic_debug_values
+[deadbeef]: https://en.wikipedia.org/wiki/Magic_number_(programming)#DEADBEEF
 [fmt]: https://doc.rust-lang.org/std/fmt/
 [fmt_traits]: https://doc.rust-lang.org/std/fmt/#formatting-traits
 [fmt_width]: https://doc.rust-lang.org/std/fmt/#width

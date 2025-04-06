@@ -1,7 +1,7 @@
 # `dead_code`
 
 러스트 컴파일러는 `dead_code` [*lint*][lint]를 통해 사용되지 않은
-함수에 대해 경고를 표시합니다. *Attribute*를 이용해 이를 비활성화할 수 있습니다.
+함수에 대해 경고를 표시합니다. *속성*을 이용해 이를 비활성화할 수 있습니다.
 
 ```rust,editable
 fn used_function() {}

@@ -4,6 +4,11 @@ Rust provides a Foreign Function Interface (FFI) to C libraries. Foreign
 functions must be declared inside an `extern` block annotated with a `#[link]`
 attribute containing the name of the foreign library.
 
+> 🛈 Foreign functions are treated as [`unsafe`][unsafe]. You should call those in `unsafe` block,
+> but you can still wrap with safe (standard rust) functions.
+>
+> `unsafe fn`s are able to use these without another `unsafe` wrapping.
+
 ```rust,ignore
 use std::fmt;
 
@@ -54,3 +59,5 @@ impl fmt::Debug for Complex {
     }
 }
 ```
+
+[unsafe]: ../unsafe.md

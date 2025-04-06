@@ -59,7 +59,7 @@ fn main() {
 ### 참고
 
 [`for`][for], [`ref`][ref], [`Result`][result], [`struct`][struct],
-[`?`][q_mark], and [`vec!`][vec]
+[`?`][q_mark]와 [`vec!`][vec]
 
 [for]: ../../../flow_control/for.md
 [result]: ../../../std/result.md

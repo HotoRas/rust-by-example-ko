@@ -96,7 +96,7 @@ fn main() {
 
 ### 참고
 
-[`attributes`][attributes], [raw identifiers][raw_identifiers]와 [destructuring][destructuring]
+[`attributes`][attributes], [원본 식별자][raw_identifiers]와 [해체][destructuring]
 
 [attributes]: ../attribute.md
 [c_struct]: https://ko.wikipedia.org/wiki/Struct_(C_programming_language)
