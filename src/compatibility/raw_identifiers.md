@@ -1,17 +1,15 @@
-# Raw identifiers
+# 원본 식별자
 
-Rust, like many programming languages, has the concept of "keywords".
-These identifiers mean something to the language, and so you cannot use them in
-places like variable names, function names, and other places.
-Raw identifiers let you use keywords where they would not normally be allowed.
-This is particularly useful when Rust introduces new keywords, and a library
-using an older edition of Rust has a variable or function with the same name
-as a keyword introduced in a newer edition.
+러스트에는 다른 프로그래밍 언어와 같이 "키워드"라는 컨셉이 존재합니다.
+이 식별자는 언어 수준에서 특정한 의미를 가지고, 이에 따라 변수명이나 함수명
+등등에 보통은 사용할 수 없습니다.
+원본 식별자(`r#`)를 이용하면 보통이라면 이용할 수 없는 키워드를 식별자로 이용할 수 있게 해줍니다.
+이 방식은 러스트에서 새로운 키워드를 발표함에 따라 이전 에디션의 러스트에서 사용한 변수/함수 식별자가
+최신 에디션에서 키워드로 지정되었고 이를 활용해야 할 때 유용합니다.
 
-For example, consider a crate `foo` compiled with the 2015 edition of Rust that
-exports a function named `try`. This keyword is reserved for a new feature in
-the 2018 edition, so without raw identifiers, we would have no way to name the
-function.
+예를 들어, 크레이트 `foo`가 러스트 2015 에디션에서 컴파일되었고 `try`라는 이름의
+함수를 노출한다고 해봅시다. 이 키워드는 2018 에디션에서 키워드로 지정되었기 때문에,
+원본 식별자 문법 없이는 그 함수를 더이상 활용할 수 없게 됩니다.
 
 ```rust,ignore
 extern crate foo;
@@ -21,7 +19,7 @@ fn main() {
 }
 ```
 
-You'll get this error:
+이를 컴파일하면 이런 오류가 발생합니다:
 
 ```text
 error: expected identifier, found keyword `try`
@@ -31,7 +29,7 @@ error: expected identifier, found keyword `try`
   |      ^^^ expected identifier, found keyword
 ```
 
-You can write this with a raw identifier:
+이를 해결하기 위해 원본 식별자를 이용해 작성하면 이렇게 됩니다:
 
 ```rust,ignore
 extern crate foo;

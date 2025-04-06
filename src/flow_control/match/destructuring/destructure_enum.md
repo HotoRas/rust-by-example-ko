@@ -1,6 +1,6 @@
-# enums
+# 열거형
 
-An `enum` is destructured similarly:
+`열거형`은 이런 식으로 해체할 수 있습니다:
 
 ```rust,editable
 // `allow` required to silence warnings because only
@@ -45,9 +45,9 @@ fn main() {
 }
 ```
 
-### See also:
+### 참고
 
-[`#[allow(...)]`][allow], [color models][color_models] and [`enum`][enum]
+[`#[allow(...)]`][allow], [색상 모델][color_models] and [`enum`][enum]
 
 [allow]: ../../../attribute/unused.md
 [color_models]: https://en.wikipedia.org/wiki/Color_model

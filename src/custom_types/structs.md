@@ -7,26 +7,28 @@
 * 유닛 구조체. 필드가 없는 제너릭에 유용한 구조체입니다.
 
 ```rust,editable
+// 미사용 코드에 대한 오류를 숨기기 위해
+#![allow(dead_code)]
+
 #[derive(Debug)]
 struct Person {
     name: String,
     age: u8,
 }
 
-// A unit struct
+// 유닛 구조체
 struct Unit;
 
-// A tuple struct
+// 튜플 구조체
 struct Pair(i32, f32);
 
-// A struct with two fields
+// 2개의 필드를 가진 구조체
 struct Point {
     x: f32,
     y: f32,
 }
 
-// Structs can be reused as fields of another struct
-#[allow(dead_code)]
+// 구조체는 다른 구조체의 필드로 이용될 수 있습니다
 struct Rectangle {
     // A rectangle can be specified by where the top left and bottom right
     // corners are in space.
@@ -45,21 +47,22 @@ fn main() {
 
 
     // Instantiate a `Point`
-    let point: Point = Point { x: 10.3, y: 0.4 };
+    let point: Point = Point { x: 5.2, y: 0.4 };
+    let another_point: Point = Point { x: 10.3, y: 0.2 };
 
     // Access the fields of the point
     println!("point coordinates: ({}, {})", point.x, point.y);
 
     // Make a new point by using struct update syntax to use the fields of our
     // other one
-    let bottom_right = Point { x: 5.2, ..point };
+    let bottom_right = Point { x: 10.3, ..another_point };
 
     // `bottom_right.y` will be the same as `point.y` because we used that field
     // from `point`
     println!("second point: ({}, {})", bottom_right.x, bottom_right.y);
 
     // Destructure the point using a `let` binding
-    let Point { x: top_edge, y: left_edge } = point;
+    let Point { x: left_edge, y: top_edge } = point;
 
     let _rectangle = Rectangle {
         // struct instantiation is an expression too
@@ -83,18 +86,19 @@ fn main() {
 }
 ```
 
-### Activity
+### 실습
 
-1. Add a function `rect_area` which calculates the area of a rectangle (try
-   using nested destructuring).
-2. Add a function `square` which takes a `Point` and a `f32` as arguments, and
-   returns a `Rectangle` with its lower left corner on the point, and a width and
-   height corresponding to the `f32`.
+1. 직사각형의 넓이를 계산하는 `rect_area` 함수를 추가해보세요.
+    (아이템 중첩 해체를 활용해보세요)
+2. `Point`와 `f32`를 인수로 받아 왼쪽 바닥의 점을 `Point`에서,
+    폭과 높이를 `f32`에서 계산해 `Rectangle`을 리턴하는
+    `square` 함수를 추가해보세요.
 
-### See also
+### 참고
 
-[`attributes`][attributes], and [destructuring][destructuring]
+[`attributes`][attributes], [raw identifiers][raw_identifiers]와 [destructuring][destructuring]
 
 [attributes]: ../attribute.md
-[c_struct]: https://ko.wikipedia.org/wiki/Struct
+[c_struct]: https://ko.wikipedia.org/wiki/Struct_(C_programming_language)
 [destructuring]: ../flow_control/match/destructuring.md
+[raw_identifiers]: ../compatibility/raw_identifiers.md

@@ -1,8 +1,8 @@
-# The ref pattern
+# ref 패턴
 
-When doing pattern matching or destructuring via the `let` binding, the `ref`
-keyword can be used to take references to the fields of a struct/tuple. The 
-example below shows a few instances where this can be useful:
+`let` 바인딩을 통해 패턴 매칭이나 구조 해체를 할 때,
+`ref` 키워드를 이용해 구조체나 튜플의 필드에 대한 참조를 가져올 수 있습니다.
+아래의 예시는 이가 유용할 수 있는 몇몇 상황을 들었습니다:
 
 ```rust,editable
 #[derive(Clone, Copy)]

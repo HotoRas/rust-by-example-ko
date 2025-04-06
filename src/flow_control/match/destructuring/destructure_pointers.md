@@ -1,11 +1,10 @@
-# pointers/ref
+# 포인터/레퍼런스
 
-For pointers, a distinction needs to be made between destructuring
-and dereferencing as they are different concepts which are used
-differently from a language like `C`.
+`C`언어 같은 언어들에서와 그 컨셉이 다르기 때문에,
+포인터에서는 해체 과정에 비구조화와 비참조화 과정이 필요합니다.
 
- * Dereferencing uses `*`
- * Destructuring uses `&`, `ref`, and `ref mut`
+ * 비참조화는 `*`를 사용합니다
+ * 비구조화는 `&`, `ref`와/또는 `ref mut`를 사용합니다
 
 ```rust,editable
 fn main() {
@@ -60,6 +59,6 @@ fn main() {
 }
 ```
 
-### See also:
+### 참고
 
 [The ref pattern](../../../scope/borrow/ref.md)

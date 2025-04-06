@@ -1,11 +1,11 @@
-# Destructuring
+# 아이템 해체
 
-A `match` block can destructure items in a variety of ways.
+`match` 블록을 이용해 아이템을 여러 방법으로 해체할 수 있습니다.
 
-* [Destructuring Tuples][tuple]
-* [Destructuring Enums][enum]
-* [Destructuring Pointers][refs]
-* [Destructuring Structures][struct]
+* [튜플 해체][tuple]
+* [열거형 해체][enum]
+* [포인터 해체][refs]
+* [구조체 해체][struct]
 
 
 [enum]: destructuring/destructure_enum.md
