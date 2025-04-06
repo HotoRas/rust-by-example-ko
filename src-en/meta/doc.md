@@ -1,8 +1,10 @@
 # Documentation
 
-Use `cargo doc` to build documentation in `target/doc`.
+Use `cargo doc` to build documentation in `target/doc`, `cargo doc --open`
+will automatically open it in your web browser.
 
-Use `cargo test` to run all tests (including documentation tests), and `cargo test --doc` to only run documentation tests.
+Use `cargo test` to run all tests (including documentation tests), and `cargo
+test --doc` to only run documentation tests.
 
 These commands will appropriately invoke `rustdoc` (and `rustc`) as required.
 
@@ -22,11 +24,7 @@ pub struct Person {
 }
 
 impl Person {
-    /// Returns a person with the name given them
-    ///
-    /// # Arguments
-    ///
-    /// * `name` - A string slice that holds the name of the person
+    /// Creates a person with the given name.
     ///
     /// # Examples
     ///
@@ -44,8 +42,8 @@ impl Person {
 
     /// Gives a friendly hello!
     ///
-    /// Says "Hello, [name]" to the `Person` it is called on.
-    pub fn hello(& self) {
+    /// Says "Hello, [name](Person::name)" to the `Person` it is called on.
+    pub fn hello(&self) {
         println!("Hello, {}!", self.name);
     }
 }
@@ -67,7 +65,8 @@ $ rustdoc --test --extern doc="libdoc.rlib" doc.rs
 
 ## Doc attributes
 
-Below are a few examples of the most common `#[doc]` attributes used with `rustdoc`.
+Below are a few examples of the most common `#[doc]` attributes used with
+`rustdoc`.
 
 ### `inline`
 
@@ -78,7 +77,7 @@ Used to inline docs, instead of linking out to separate page.
 pub use bar::Bar;
 
 /// bar docs
-mod bar {
+pub mod bar {
     /// the docs for Bar
     pub struct Bar;
 }
@@ -104,7 +103,8 @@ Using this tells `rustdoc` not to include this in documentation:
 pub use self::async_await::*;
 ```
 
-For documentation, `rustdoc` is widely used by the community. It's what is used to generate the [std library docs](https://doc.rust-lang.org/std/).
+For documentation, `rustdoc` is widely used by the community. It's what is used
+to generate the [std library docs](https://doc.rust-lang.org/std/).
 
 ### See also:
 

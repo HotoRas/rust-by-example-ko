@@ -2,18 +2,18 @@
 
 The borrow checker uses explicit lifetime annotations to determine
 how long references should be valid. In cases where lifetimes are not
-elided[^1], Rust requires explicit annotations to determine what the 
-lifetime of a reference should be. The syntax for explicitly annotating 
-a lifetime uses an apostrophe character as follows: 
+elided[^1], Rust requires explicit annotations to determine what the
+lifetime of a reference should be. The syntax for explicitly annotating
+a lifetime uses an apostrophe character as follows:
 
 ```rust,ignore
 foo<'a>
 // `foo` has a lifetime parameter `'a`
 ```
 
-Similar to [closures][anonymity], using lifetimes requires generics. 
-Additionally, this lifetime syntax indicates that the lifetime of `foo` 
-may not exceed that of `'a`. Explicit annotation of a type has the form 
+Similar to [closures][anonymity], using lifetimes requires generics.
+Additionally, this lifetime syntax indicates that the lifetime of `foo`
+may not exceed that of `'a`. Explicit annotation of a type has the form
 `&'a T` where `'a` has already been introduced.
 
 In cases with multiple lifetimes, the syntax is similar:
@@ -40,10 +40,10 @@ fn failed_borrow<'a>() {
     let _x = 12;
 
     // ERROR: `_x` does not live long enough
-    //let y: &'a i32 = &_x;
+    let _y: &'a i32 = &_x;
     // Attempting to use the lifetime `'a` as an explicit type annotation 
     // inside the function will fail because the lifetime of `&_x` is shorter
-    // than that of `y`. A short lifetime cannot be coerced into a longer one.
+    // than that of `_y`. A short lifetime cannot be coerced into a longer one.
 }
 
 fn main() {

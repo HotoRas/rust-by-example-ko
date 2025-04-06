@@ -1,8 +1,8 @@
 # Struct visibility
 
-Structs have an extra level of visibility with their fields. The visibility 
-defaults to private, and can be overridden with the `pub` modifier. This 
-visibility only matters when a struct is accessed from outside the module 
+Structs have an extra level of visibility with their fields. The visibility
+defaults to private, and can be overridden with the `pub` modifier. This
+visibility only matters when a struct is accessed from outside the module
 where it is defined, and has the goal of hiding information (encapsulation).
 
 ```rust,editable
@@ -13,7 +13,6 @@ mod my {
     }
 
     // A public struct with a private field of generic type `T`
-    #[allow(dead_code)]
     pub struct ClosedBox<T> {
         contents: T,
     }

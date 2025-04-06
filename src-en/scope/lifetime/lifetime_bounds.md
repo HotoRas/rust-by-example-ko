@@ -1,7 +1,7 @@
 # Bounds
 
 Just like generic types can be bounded, lifetimes (themselves generic)
-use bounds as well. The `:` character has a slightly different meaning here, 
+use bounds as well. The `:` character has a slightly different meaning here,
 but `+` is the same. Note how the following read:
 
 1. `T: 'a`: *All* references in `T` must outlive lifetime `'a`.
@@ -16,7 +16,7 @@ use std::fmt::Debug; // Trait to bound with.
 #[derive(Debug)]
 struct Ref<'a, T: 'a>(&'a T);
 // `Ref` contains a reference to a generic type `T` that has
-// an unknown lifetime `'a`. `T` is bounded such that any
+// some lifetime `'a` unknown by `Ref`. `T` is bounded such that any
 // *references* in `T` must outlive `'a`. Additionally, the lifetime
 // of `Ref` may not exceed `'a`.
 
@@ -45,7 +45,7 @@ fn main() {
 
 ### See also:
 
-[generics][generics], [bounds in generics][bounds], and 
+[generics][generics], [bounds in generics][bounds], and
 [multiple bounds in generics][multibounds]
 
 [generics]: ../../generics.md

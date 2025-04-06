@@ -1,14 +1,14 @@
 # Testcase: map-reduce
 
-Rust makes it very easy to parallelise data processing, without many of the headaches traditionally associated with such an attempt.
+Rust makes it very easy to parallelize data processing, without many of the headaches traditionally associated with such an attempt.
 
 The standard library provides great threading primitives out of the box.
 These, combined with Rust's concept of Ownership and aliasing rules, automatically prevent
 data races.
 
 The aliasing rules (one writable reference XOR many readable references) automatically prevent
-you from manipulating state that is visible to other threads. (Where synchronisation is needed,
-there are synchronisation
+you from manipulating state that is visible to other threads. (Where synchronization is needed,
+there are synchronization
 primitives like `Mutex`es or `Channel`s.)
 
 In this example, we will calculate the sum of all digits in a block of numbers.
@@ -17,9 +17,11 @@ its tiny block of digits, and subsequently we will sum the intermediate sums pro
 thread.
 
 Note that, although we're passing references across thread boundaries, Rust understands that we're
-only passing read-only references, and that thus no unsafety or data races can occur. Because
-we're `move`-ing the data segments into the thread, Rust will also ensure the data is kept alive
-until the threads exit, so no dangling pointers occur.
+only passing read-only references, and that thus no unsafety or data races can occur. Also because
+the references we're passing have `'static` lifetimes, Rust understands that our data won't be
+destroyed while these threads are still running. (When you need to share non-`static` data between
+threads, you can use a smart pointer like `Arc` to keep the data alive and avoid non-`static`
+lifetimes.)
 
 ```rust,editable
 use std::thread;
@@ -28,7 +30,7 @@ use std::thread;
 fn main() {
 
     // This is our data to process.
-    // We will calculate the sum of all digits via a threaded  map-reduce algorithm.
+    // We will calculate the sum of all digits via a threaded map-reduce algorithm.
     // Each whitespace separated chunk will be handled in a different thread.
     //
     // TODO: see what happens to the output if you insert spaces!
@@ -103,21 +105,13 @@ fn main() {
      * Collect our intermediate results, and combine them into a final result
      ************************************************************************/
 
-    // collect each thread's intermediate results into a new Vec
-    let mut intermediate_sums = vec![];
-    for child in children {
-        // collect each child thread's return-value
-        let intermediate_sum = child.join().unwrap();
-        intermediate_sums.push(intermediate_sum);
-    }
-
-    // combine all intermediate sums into a single final sum.
+    // combine each thread's intermediate results into a single final sum.
     //
     // we use the "turbofish" ::<> to provide sum() with a type hint.
     //
     // TODO: try without the turbofish, by instead explicitly
     // specifying the type of final_result
-    let final_result = intermediate_sums.iter().sum::<u32>();
+    let final_result = children.into_iter().map(|c| c.join().unwrap()).sum::<u32>();
 
     println!("Final sum result: {}", final_result);
 }
@@ -126,12 +120,14 @@ fn main() {
 ```
 
 ### Assignments
+
 It is not wise to let our number of threads depend on user inputted data.
 What if the user decides to insert a lot of spaces? Do we _really_ want to spawn 2,000 threads?
 Modify the program so that the data is always chunked into a limited number of chunks,
 defined by a static constant at the beginning of the program.
 
 ### See also:
+
 * [Threads][thread]
 * [vectors][vectors] and [iterators][iterators]
 * [closures][closures], [move][move] semantics and [`move` closures][move_closure]
@@ -147,6 +143,6 @@ defined by a static constant at the beginning of the program.
 [closures]: ../../fn/closures.md
 [move]: ../../scope/move.md
 [move_closure]: https://doc.rust-lang.org/book/ch13-01-closures.html#closures-can-capture-their-environment
-[turbofish]: https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.collect
+[turbofish]: https://doc.rust-lang.org/book/appendix-02-operators.html?highlight=turbofish
 [unwrap]: ../../error/option_unwrap.md
 [enumerate]: https://doc.rust-lang.org/book/loops.html#enumerate

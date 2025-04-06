@@ -1,6 +1,6 @@
 # Functions
 
-Ignoring [elision], function signatures with lifetimes have a few constraints: 
+Ignoring [elision], function signatures with lifetimes have a few constraints:
 
 * any reference *must* have an annotated lifetime.
 * any reference being returned *must* have the same lifetime as an input or
@@ -57,7 +57,8 @@ fn main() {
 
 ### See also:
 
-[functions][fn]
+[Functions][fn]
+
+[fn]: ../../fn.md
 
 [elision]: elision.md
-[fn]: fn.md

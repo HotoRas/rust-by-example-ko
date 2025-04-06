@@ -4,7 +4,7 @@ Most of the time, we'd like to access data without taking ownership over
 it. To accomplish this, Rust uses a *borrowing* mechanism. Instead of
 passing objects by value (`T`), objects can be passed by reference (`&T`).
 
-The compiler statically guarantees (via its borrow checker) that references 
+The compiler statically guarantees (via its borrow checker) that references
 *always* point to valid objects. That is, while references to an object
 exist, the object cannot be destroyed.
 
@@ -20,7 +20,9 @@ fn borrow_i32(borrowed_i32: &i32) {
 }
 
 fn main() {
-    // Create a boxed i32, and a stacked i32
+    // Create a boxed i32 in the heap, and a i32 on the stack
+    // Remember: numbers can have arbitrary underscores added for readability
+    // 5_i32 is the same as 5i32
     let boxed_i32 = Box::new(5_i32);
     let stacked_i32 = 6_i32;
 
@@ -43,7 +45,7 @@ fn main() {
         // `_ref_to_i32` goes out of scope and is no longer borrowed.
     }
 
-    // `boxed_i32` can now give up ownership to `eat_box` and be destroyed
+    // `boxed_i32` can now give up ownership to `eat_box_i32` and be destroyed
     eat_box_i32(boxed_i32);
 }
 ```

@@ -71,6 +71,7 @@ test result: FAILED. 1 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out
 ```
 
 ## Tests and `?`
+
 None of the previous unit test examples had a return type. But in Rust 2018,
 your unit tests can return `Result<()>`, which lets you use `?` in them! This
 can make them much more concise.
@@ -199,7 +200,7 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
 Tests can be marked with the `#[ignore]` attribute to exclude some tests. Or to run
 them with command `cargo test -- --ignored`
 
-```rust
+```rust,ignore
 pub fn add(a: i32, b: i32) -> i32 {
     a + b
 }
