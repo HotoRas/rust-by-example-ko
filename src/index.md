@@ -17,7 +17,7 @@
 
 - [사용자 정의 자료형](custom_types.md) - `struct` 와 `enum`.
 
-- [변수 바인딩](variable_bindings.md) - mutable bindings, scope, shadowing.
+- [변수 바인딩](variable_bindings.md) - 수정 가능한 변수와 스코프, 섀도잉.
 
 - [자료형](types.md) - 타입을 변경하고 정의하는 방법에 대해 배워 봅니다.
 
@@ -27,37 +27,37 @@
 
 - [제어문](flow_control.md) - `if`/`else`, `for`, 그리고 여러 다른 것들.
 
-- [함수](fn.md) - Learn about Methods, Closures and High Order Functions.
+- [함수](fn.md) - 메서드, 클로저와 상위 순서의 함수를 알아봅시다.
 
-- [모듈](mod.md) - Organize code using modules
+- [모듈](mod.md) - 모듈을 통해 코드를 정리해봅시다.
 
-- [크레이트(Crate)](crates.md) - A crate is a compilation unit in Rust. Learn to create a library.
+- [크레이트(Crate)](crates.md) - 크레이트는 러스트의 컴파일 단위입니다. 라이브러리도 만들어봅시다.
 
-- [카고(Cargo)](cargo.md) - Go through some basic features of the official Rust package management tool.
+- [카고(Cargo)](cargo.md) - 러스트의 공식 패키지 관리 툴의 기본 기능을 알아봅시다.
 
-- [Attributes](attribute.md) - An attribute is metadata applied to some module, crate or item.
+- [속성](attribute.md) - 속성은 모듈, 크레이트 또는 아이템에 적용하는 메타데이터입니다.
 
-- [Generics](generics.md) - Learn about writing a function or data type which can work for multiple types of arguments.
+- [제네릭](generics.md) - 여러 타입의 매개변수를 가지는 함수나 데이터 타입을 작성하는 법을 알아봅시다.
 
-- [Scoping rules](scope.md) - Scopes play an important part in ownership, borrowing, and lifetimes.
+- [스코프 규칙](scope.md) - 스코프는 소유권, 빌리기와 수명 주기에 중요한 역할을 합니다.
 
-- [Traits](trait.md) - A trait is a collection of methods defined for an unknown type: `Self`
+- [트레잇](trait.md) - 트레잇은 알 수 없는 타입 `Self`를 위해 선언된 메서드 모음입니다.
 
-- [Macros](macros.md) - Macros are a way of writing code that writes other code, which is known as metaprogramming.
+- [매크로](macros.md) - 매크로는 다른 코드를 작성하는 코드로, 메타프로그래밍이라고 부르기도 합니다.
 
-- [Error handling](error.md) - Learn Rust way of handling failures.
+- [오류 다루기](error.md) - 러스트에서 실패를 다루는 법을 배워봅니다.
 
-- [Std library types](std.md) - Learn about some custom types provided by `std` library.
+- [std 라이브러리 타입](std.md) - `std` 라이브러리에서 제공하는 몇몇 커스텀 타입을 알아봅시다.
 
-- [Std misc](std_misc.md) - More custom types for file handling, threads.
+- [std 라이브러리 잡동사니](std_misc.md) - 파일 핸들링과 스레드에 대한 더 많은 커스텀 타입입니다.
 
-- [Testing](testing.md) - All sorts of testing in Rust.
+- [테스트하기](testing.md) - 러스트에서의 모든 방식의 테스트.
 
-- [Unsafe Operations](unsafe.md) - "안전하지 않은" 동작 블록에 진입하는 방법을 알아봅니다.
+- [Unsafe한 작업](unsafe.md) - "안전하지 않은" 동작 블록에 진입하는 방법을 알아봅니다.
 
-- [Compatibility](compatibility.md) - 러스트의 발전과 가능한 호환성 문제를 다룹니다.
+- [호환성](compatibility.md) - 러스트의 발전과 가능한 호환성 문제를 다룹니다.
 
-- [Meta](meta.md) - Documentation, Benchmarking.
+- [메타데이터](meta.md) - 문서화와 벤치마크.
 
 
 [rust]: https://www.rust-lang.org/
