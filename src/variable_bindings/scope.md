@@ -1,29 +1,32 @@
-# Scope and Shadowing
+# 스코프와 섀도잉
 
-Variable bindings have a scope, and are constrained to live in a *block*. A
-block is a collection of statements enclosed by braces `{}`. 
+변수 할당은 스코프를 가지며, *블록* 안에서 존재하는 것으로 간주됩니다. 블록은
+중괄호 `{}`로 묶인 선언문 덩어리입니다.
+
 ```rust,editable,ignore,mdbook-runnable
 fn main() {
-    // This binding lives in the main function
+    // 이 할당문은 main 함수에 있습니다.
     let long_lived_binding = 1;
 
-    // This is a block, and has a smaller scope than the main function
+    // 이것이 블록이며, main 함수보다 작은 스코프입니다.
     {
-        // This binding only exists in this block
+        // 이 바인딩은 이 스코프에만 있습니다.
         let short_lived_binding = 2;
 
         println!("inner short: {}", short_lived_binding);
     }
-    // End of the block
+    // 블록 끝
 
-    // Error! `short_lived_binding` doesn't exist in this scope
+    // 오류! `short_lived_binding`이 더이상 존재하지 않습니다.
     println!("outer short: {}", short_lived_binding);
     // FIXME ^ Comment out this line
 
     println!("outer long: {}", long_lived_binding);
 }
 ```
-Also, [variable shadowing][variable-shadow] is allowed.
+
+또, [변수 섀도잉][variable-shadow]도 가능합니다.
+
 ```rust,editable,ignore,mdbook-runnable
 fn main() {
     let shadowed_binding = 1;
@@ -43,4 +46,5 @@ fn main() {
     println!("shadowed in outer block: {}", shadowed_binding);
 }
 ```
+
 [variable-shadow]: https://en.wikipedia.org/wiki/Variable_shadowing

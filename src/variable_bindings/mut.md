@@ -1,7 +1,6 @@
-# Mutability
+# 수정 가능성
 
-Variable bindings are immutable by default, but this can be overridden using
-the `mut` modifier.
+변수 할당은 기본적으로 수정 불가능하지만, `mut` 수정자를 통해 덮어씌울 수 있습니다.
 
 ```rust,editable,ignore,mdbook-runnable
 fn main() {
@@ -21,4 +20,4 @@ fn main() {
 }
 ```
 
-The compiler will throw a detailed diagnostic about mutability errors.
+컴파일러는 수정 가능성 오류에 대해 자세한 분석을 리턴합니다.

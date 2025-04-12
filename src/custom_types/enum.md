@@ -1,27 +1,27 @@
-# Enums
+# 열거형
 
-The `enum` keyword allows the creation of a type which may be one of a few
-different variants. Any variant which is valid as a `struct` is also valid in
-an `enum`.
+`enum` 키워드는 여러 종류 중 하나일 수 있는 타입을 만들 수 있게 해줍니다.
+`struct`에서 유효한 어느 타입도 `enum`에서 유효합니다.
 
 ```rust,editable
-// Create an `enum` to classify a web event. Note how both
-// names and type information together specify the variant:
-// `PageLoad != PageUnload` and `KeyPress(char) != Paste(String)`.
-// Each is different and independent.
+// 웹 이벤트를 클래스화하는 `enum`을 생성합니다.
+// 이름과 타입 정보가 어떻게 선언되는지에 주목하세요:
+// `PageLoad != PageUnload`이고 `KeyPress(char) != Paste(string)`입니다.
+// 각각은 서로 다르고 독립적입니다.
 enum WebEvent {
-    // An `enum` variant may either be `unit-like`,
+    // `enum`의 각 항목은 `unit-like`일수도,
     PageLoad,
     PageUnload,
-    // like tuple structs,
+    // 튜플 구조체일수도,
     KeyPress(char),
     Paste(String),
-    // or c-like structures.
+    // C 스타일 구조체일 수도 있습니다.
     Click { x: i64, y: i64 },
 }
 
-// A function which takes a `WebEvent` enum as an argument and
-// returns nothing.
+// `WebEvent` 열거형을 받아 아무것도 리턴하지 않는 함수입니다.
+// 역주: 함수가 정상적으로 종료되고 로직이 이어지므로 `()`를 리턴하는 것으로
+//       해석할 수 있습니다.
 fn inspect(event: WebEvent) {
     match event {
         WebEvent::PageLoad => println!("page loaded"),
@@ -53,20 +53,20 @@ fn main() {
 
 ```
 
-## Type aliases
+## 타입 별칭
 
-If you use a type alias, you can refer to each enum variant via its alias.
-This might be useful if the enum's name is too long or too generic, and you
-want to rename it.
+타입 별칭을 사용하면 각 열거형의 항목을 별칭으로 호출할 수 있습니다.
+열거형의 이름이 너무 길거나 너무 일반적이어서,
+이름을 다시 지정하고 싶을 때 유용합니다.
 
 ```rust,editable
-enum VeryVerboseEnumOfThingsToDoWithNumbers {
+enum 이름이아주긴_숫자로할수있는작업_열거형 {
     Add,
     Subtract,
 }
 
 // Creates a type alias
-type Operations = VeryVerboseEnumOfThingsToDoWithNumbers;
+type Operations = 이름이아주긴_숫자로할수있는작업_열거형;
 
 fn main() {
     // We can refer to each variant via its alias, not its long and inconvenient
@@ -75,7 +75,7 @@ fn main() {
 }
 ```
 
-The most common place you'll see this is in `impl` blocks using the `Self` alias.
+가장 자주 볼 수 있는 곳은 `impl` 블록의 `Self` 별칭일 것입니다.
 
 ```rust,editable
 enum VeryVerboseEnumOfThingsToDoWithNumbers {
@@ -93,13 +93,13 @@ impl VeryVerboseEnumOfThingsToDoWithNumbers {
 }
 ```
 
-To learn more about enums and type aliases, you can read the
-[stabilization report][aliasreport] from when this feature was stabilized into
-Rust.
+열거형과 타입 별칭에 대해 더 알고 싶다면,
+이 기능이 Rust로서 안정화될 때의 [안정화 리포트][aliasreport]를
+참고할 수 있습니다.
 
-### See also:
+### 함께 읽기:
 
-[`match`][match], [`fn`][fn], and [`String`][str], ["Type alias enum variants" RFC][type_alias_rfc]
+[`match`][match], [`fn`][fn]과 [`String`][str], ["Type alias enum variants" RFC][type_alias_rfc]
 
 [c_struct]: https://en.wikipedia.org/wiki/Struct_(C_programming_language)
 [match]: ../flow_control/match.md

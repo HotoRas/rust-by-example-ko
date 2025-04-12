@@ -1,19 +1,19 @@
-# C-like
+# C 방식 열거형
 
-`enum` can also be used as C-like enums.
+`enum`은 C 방식 열거형도 사용 가능합니다.
 
 ```rust,editable
 // An attribute to hide warnings for unused code.
 #![allow(dead_code)]
 
-// enum with implicit discriminator (starts at 0)
+// 타입과 값을 지정하지 않은 열거형 (0i32에서 시작)
 enum Number {
     Zero,
     One,
     Two,
 }
 
-// enum with explicit discriminator
+// 값이 지정된 열거형
 enum Color {
     Red = 0xff0000,
     Green = 0x00ff00,
@@ -21,7 +21,7 @@ enum Color {
 }
 
 fn main() {
-    // `enums` can be cast as integers.
+    // C 방식 열거형은 정수형으로 타입 캐스팅할 수 있습니다.
     println!("zero is {}", Number::Zero as i32);
     println!("one is {}", Number::One as i32);
 

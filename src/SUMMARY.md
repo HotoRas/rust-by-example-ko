@@ -1,4 +1,4 @@
-# Summary
+# 목차
 
 [들어가며](index.md)
 
@@ -20,14 +20,14 @@
     - [열거형](custom_types/enum.md)
         - [use](custom_types/enum/enum_use.md)
         - [C언어처럼 활용하기](custom_types/enum/c_like.md)
-        - [테스트 케이스: linked list](custom_types/enum/testcase_linked_list.md)
+        - [테스트 케이스: 연결 리스트](custom_types/enum/testcase_linked_list.md)
     - [상수](custom_types/constants.md)
 
-- [변수 바인딩](variable_bindings.md)
+- [변수 할당](variable_bindings.md)
     - [수정 가능성](variable_bindings/mut.md)
     - [스코프와 섀도잉](variable_bindings/scope.md)
     - [우선 선언하기](variable_bindings/declare.md)
-    - [프리징](variable_bindings/freeze.md)
+    - [고정하기](variable_bindings/freeze.md)
 
 - [자료형](types.md)
     - [캐스팅](types/cast.md)

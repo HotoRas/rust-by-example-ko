@@ -1,7 +1,8 @@
-# Freezing
+# 고정하기
 
-When data is bound by the same name immutably, it also *freezes*. *Frozen* data can't be 
-modified until the immutable binding goes out of scope:
+수정 가능한 변수가 같은 이름의 수정되지 않는 변수로 추가 선언되면, *고정* 상태가
+됩니다. *고정된* 데이터는 수정되지 않는 변수의 스코프 밖으로 나갈 때까지 수정할 수
+없게 됩니다:
 
 ```rust,editable,ignore,mdbook-runnable
 fn main() {

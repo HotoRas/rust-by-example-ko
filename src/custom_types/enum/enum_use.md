@@ -1,6 +1,6 @@
 # use
 
-The `use` declaration can be used so manual scoping isn't needed:
+`use` 선언을 통해 수동으로 스코핑하지 않고도 내부 상수를 이용할 수 있습니다:
 
 ```rust,editable
 // An attribute to hide warnings for unused code.
@@ -17,19 +17,18 @@ enum Role {
 }
 
 fn main() {
-    // Explicitly `use` each name so they are available without
-    // manual scoping.
+    // 각각을 `use`함으로서 스코핑 없이 사용하도록 합니다
     use crate::Stage::{Beginner, Advanced};
-    // Automatically `use` each name inside `Role`.
+    // `Role` 안의 모든 항목을 자동으로 `use`합니다
     use crate::Role::*;
 
-    // Equivalent to `Stage::Beginner`.
+    //`Stage::Beginner`와 동일
     let stage = Beginner;
-    // Equivalent to `Role::Student`.
+    // `Role::Student`와 동일
     let role = Student;
 
     match stage {
-        // Note the lack of scoping because of the explicit `use` above.
+        // 위에서 `use`를 사용함으로서 수동 스코핑이 없음을 주목하세요
         Beginner => println!("Beginners are starting their learning journey!"),
         Advanced => println!("Advanced learners are mastering their subjects..."),
     }
@@ -42,9 +41,9 @@ fn main() {
 }
 ```
 
-### See also:
+### 함께 읽기:
 
-[`match`][match] and [`use`][use]
+[`match`][match]와 [`use`][use]
 
 [use]: ../../mod/use.md
 [match]: ../../flow_control/match.md

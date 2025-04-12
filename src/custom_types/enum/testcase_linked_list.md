@@ -1,55 +1,57 @@
-# Testcase: linked-list
+# 테스트 케이스: 연결 리스트
 
-A common way to implement a linked-list is via `enums`:
+통상적으로 연결 리스트를 구현하는 방법은 `enum`을 활용하는 것입니다:
 
 ```rust,editable
+// 역주: 이렇게 하면 해당 파일 전체에서 `List` 하위 객체를
+//       스코핑 없이 바로 접근할 수 있게 됩니다.
 use crate::List::*;
 
 enum List {
-    // Cons: Tuple struct that wraps an element and a pointer to the next node
+    // Cons: 항목과 다음 노드로의 포인터를 감싸는 튜플 구조체
     Cons(u32, Box<List>),
-    // Nil: A node that signifies the end of the linked list
+    // Nil: 연결 리스트의 끝을 나타내는 선언자
     Nil,
 }
 
-// Methods can be attached to an enum
+// 열거형도 메서드를 붙일 수 있습니다
 impl List {
-    // Create an empty list
+    // 빈 `List`를 생성합니다
     fn new() -> List {
-        // `Nil` has type `List`
+        // `Nil`은 `List` 타입입니다
         Nil
     }
 
-    // Consume a list, and return the same list with a new element at its front
+    // `List`의 소유권을 가져와, 새 항목이 맨 앞에 추가된 `List`를
+    // 만들어 리턴합니다.
     fn prepend(self, elem: u32) -> List {
-        // `Cons` also has type List
+        // `Cons`도 `List` 타입입니다
         Cons(elem, Box::new(self))
     }
 
-    // Return the length of the list
+    // `List`의 길이를 리턴합니다
     fn len(&self) -> u32 {
-        // `self` has to be matched, because the behavior of this method
-        // depends on the variant of `self`
-        // `self` has type `&List`, and `*self` has type `List`, matching on a
-        // concrete type `T` is preferred over a match on a reference `&T`
-        // after Rust 2018 you can use self here and tail (with no ref) below as well,
-        // rust will infer &s and ref tail. 
-        // See https://doc.rust-lang.org/edition-guide/rust-2018/ownership-and-lifetimes/default-match-bindings.html
+        // `self`의 종류에 따라 행동이 바뀌기에 매칭이 필요합니다.
+        // `self`는 `&List` 타입이고 `*self`는 `List` 타입이며,
+        // 정적 타입 `T`가 `&T`보다 매칭에 선호됩니다.
+        // Rust 2018부터는 레퍼런스 없이 self나 tail을 사용할 수 있으며,
+        // 이때 러스트는 `&s`와 `ref tail`을 추정해 컴파일합니다.
+        // 더 보기: https://doc.rust-lang.org/edition-guide/rust-2018/ownership-and-lifetimes/default-match-bindings.html
         match *self {
-            // Can't take ownership of the tail, because `self` is borrowed;
-            // instead take a reference to the tail
+            // `self`가 빌려온 것으로 `tail`을 가져올 수 없어, 이의 레퍼런스를
+            // 가져옵니다.
             Cons(_, ref tail) => 1 + tail.len(),
-            // Base Case: An empty list has zero length
+            // 빈 리스트는 기본적으로 0의 길이이죠.
             Nil => 0
         }
     }
 
-    // Return representation of the list as a (heap allocated) string
+    // 리스트 전체를 (heap 할당된) `String`으로 리턴합니다
     fn stringify(&self) -> String {
         match *self {
             Cons(head, ref tail) => {
-                // `format!` is similar to `print!`, but returns a heap
-                // allocated string instead of printing to the console
+                // `format!`은 `print!`와 유사하지만, 콘솔에 뿌리는 대신
+                // heap 할당된 string을 리턴합니다
                 format!("{}, {}", head, tail.stringify())
             },
             Nil => {
@@ -60,23 +62,23 @@ impl List {
 }
 
 fn main() {
-    // Create an empty linked list
+    // 빈 연결 리스트를 만듭니다
     let mut list = List::new();
 
-    // Prepend some elements
+    // 서두에 아이템 몇 개를 추가합니다
     list = list.prepend(1);
     list = list.prepend(2);
     list = list.prepend(3);
 
-    // Show the final state of the list
+    // 최종 상태를 확인합니다
     println!("linked list has length: {}", list.len());
     println!("{}", list.stringify());
 }
 ```
 
-### See also:
+### 함께 읽기:
 
-[`Box`][box] and [methods][methods]
+[`Box`][box]와 [methods][methods]
 
 [box]: ../../std/box.md
 [methods]: ../../fn/methods.md
