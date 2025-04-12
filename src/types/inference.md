@@ -1,28 +1,26 @@
-# Inference
+# 타입 추정
 
-The type inference engine is pretty smart. It does more than looking at the
-type of the value expression
-during an initialization. It also looks at how the variable is used afterwards 
-to infer its type. Here's an advanced example of type inference:
+타입 추정 엔진은 아주 똑똑합니다. 선언할 때의 값만 보는 것이 아니라, 그 변수가 이후
+어떻게 이용되는지까지 모두 추적해 타입을 추정합니다. 여기 타입 추정에 대한 고급
+예시가 있습니다:
 
 ```rust,editable
 fn main() {
-    // Because of the annotation, the compiler knows that `elem` has type u8.
+    // 접미사에 의해 컴파일러는 `elem`이 `u8`임을 확인합니다.
     let elem = 5u8;
 
-    // Create an empty vector (a growable array).
+    // 빈 벡터(늘어날 수 있는 배열) 선언
     let mut vec = Vec::new();
-    // At this point the compiler doesn't know the exact type of `vec`, it
-    // just knows that it's a vector of something (`Vec<_>`).
+    // 여기에서 컴파일러는 `vec`이 정확하게 어느 타입인지 모릅니다. 그저 무언가의
+    // 벡터(`Vec<_>`)라는 것 정도만 확인하죠.
 
-    // Insert `elem` in the vector.
+    // `elem`을 이제 vec에 넣어봅시다.
     vec.push(elem);
-    // Aha! Now the compiler knows that `vec` is a vector of `u8`s (`Vec<u8>`)
-    // TODO ^ Try commenting out the `vec.push(elem)` line
+    // 아하! 이 시점에서 컴파일러는 `vec`이 `u8`의 벡터(`Vec<u8>`)임을 확인합니다.
+    // TODO ^ 위의 `vec.push(elem)` 줄을 주석 처리해보세요
 
     println!("{:?}", vec);
 }
 ```
 
-No type annotation of variables was needed, the compiler is happy and so is the
-programmer!
+변수에 대한 타입 선언 없이도, 컴파일러도 행복하고 프로그래머도 행복합니다!

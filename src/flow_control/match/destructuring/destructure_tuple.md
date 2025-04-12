@@ -1,6 +1,6 @@
-# tuples
+# 튜플
 
-Tuples can be destructured in a `match` as follows:
+튜플은 `match`로 아래와 같이 해체할 수 있습니다:
 
 ```rust,editable
 fn main() {

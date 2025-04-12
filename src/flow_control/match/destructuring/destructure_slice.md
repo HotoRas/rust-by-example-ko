@@ -1,6 +1,6 @@
-# arrays/slices
+# 배열/슬라이스
 
-Like tuples, arrays and slices can be destructured this way:
+튜플과 같이, 배열과 슬라이스도 이런 식으로 해체할 수 있습니다:
 
 ```rust,editable
 fn main() {
@@ -43,6 +43,6 @@ fn main() {
 }
 ```
 
-### See also:
+### 함께 읽기:
 
-[Arrays and Slices](../../../primitives/array.md) and [Binding](../binding.md) for `@` sigil
+[배열과 슬라이스](../../../primitives/array.md), [바인딩](../binding.md) for `@` sigil

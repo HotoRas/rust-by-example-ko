@@ -1,23 +1,19 @@
-# Aliasing
+# 별명 만들기
 
-The `type` statement can be used to give a new name to an existing type. Types
-must have `UpperCamelCase` names, or the compiler will raise a warning. The
-exception to this rule are the primitive types: `usize`, `f32`, etc.
+`type` 선언문은 기존 타입에 새로운 이름을 제공합니다. 타입 이름은 반드시
+`UpperCamelCase`(대문자 시작 카멜-케이스)로 지어야 하며, 아닌 경우 컴파일러에서
+경고를 낼 겁니다. `usize`나 `f32` 등의 사전 정의된 타입은 예외입니다.
 
 ```rust,editable
-// `NanoSecond` is a new name for `u64`.
+// `NanoSecond`, `Inch`, and `U64` are new names for `u64`.
 type NanoSecond = u64;
 type Inch = u64;
-
-// Use an attribute to silence warning.
-#[allow(non_camel_case_types)]
-type u64_t = u64;
-// TODO ^ Try removing the attribute
+type U64 = u64;
 
 fn main() {
-    // `NanoSecond` = `Inch` = `u64_t` = `u64`.
-    let nanoseconds: NanoSecond = 5 as u64_t;
-    let inches: Inch = 2 as u64_t;
+    // `NanoSecond` = `Inch` = `U64` = `u64`.
+    let nanoseconds: NanoSecond = 5 as u64;
+    let inches: Inch = 2 as U64;
 
     // Note that type aliases *don't* provide any extra type safety, because
     // aliases are *not* new types
@@ -28,9 +24,11 @@ fn main() {
 }
 ```
 
-The main use of aliases is to reduce boilerplate; for example the `IoResult<T>` type
-is an alias for the `Result<T, IoError>` type.
+이런 타입 별명은 불필요한 코드를 줄이기 위해 사용됩니다. 예를 들어
+- `io::Result<T>`는 `Result<T, io::Error>`의 별칭입니다.
+- 역주: `Some<T>()`과 `None::<T>`은 각각 `std::option::Option<T>::Some()`과 `std::option::Option<T>::None`의 별칭입니다.
+  * `Option<T>`는 다시 `std::option::Option<T>`의 별칭입니다.
 
-### See also:
+### 함께 보기:
 
-[Attributes](../attribute.md)
+[속성](../attribute.md)

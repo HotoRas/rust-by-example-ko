@@ -1,6 +1,6 @@
-# structs
+# 구조체
 
-Similarly, a `struct` can be destructured as shown:
+비슷하게, 구조체도 아래와 같이 해체할 수 있습니다:
 
 ```rust,editable
 fn main() {

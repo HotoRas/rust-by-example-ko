@@ -29,16 +29,16 @@
     - [우선 선언하기](variable_bindings/declare.md)
     - [고정하기](variable_bindings/freeze.md)
 
-- [자료형](types.md)
+- [자료형 다루기](types.md)
     - [캐스팅](types/cast.md)
     - [리터럴](types/literals.md)
     - [추적](types/inference.md)
     - [별명 붙이기](types/alias.md)
 
-- [형변환](conversion.md)
+- [타입 변환](conversion.md)
     - [`From`과 `Into`](conversion/from_into.md)
     - [`TryFrom`과 `TryInto`](conversion/try_from_try_into.md)
-    - [`string`으로, `string`에서](conversion/string.md)
+    - [`String`으로, `String`에서](conversion/string.md)
 
 - [표현식](expression.md)
 
