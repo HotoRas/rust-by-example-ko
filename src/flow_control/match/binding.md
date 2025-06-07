@@ -1,8 +1,7 @@
-# Binding
+# 바인딩
 
-Indirectly accessing a variable makes it impossible to branch and use that
-variable without re-binding. `match` provides the `@` sigil for binding values to
-names:
+변수를 간접적으로 접근하는 것은 그 변수를 다시 할당하지 않으면 분기를 하지 못하게 하는 주 원인입니다.
+`match`는 `@` 한정자를 이용해 해당 값을 변수로 재할당합니다:
 
 ```rust,editable
 // A function `age` which returns a `u32`.
@@ -26,7 +25,7 @@ fn main() {
 }
 ```
 
-You can also use binding to "destructure" `enum` variants, such as `Option`:
+이 바인딩을 통해 `Option`과 같은 `enum`형을 해체하는 것도 가능합니다:
 
 ```rust,editable
 fn some_number() -> Option<u32> {
@@ -46,7 +45,7 @@ fn main() {
 }
 ```
 
-### See also:
+### 함께 읽기:
 [`functions`][functions], [`enums`][enums] and [`Option`][option]
 
 [functions]: ../../fn.md

@@ -1,9 +1,7 @@
-# Returning from loops
+# loop에서 리턴하기
 
-One of the uses of a `loop` is to retry an operation until it succeeds. If the
-operation returns a value though, you might need to pass it to the rest of the
-code: put it after the `break`, and it will be returned by the `loop`
-expression.
+`loop`의 용법 중 하나는 작업이 성공할 때까지 반복하는 겁니다. 하지만 작업이 값을 반환하면 나머지를 건너뛸 수도 있겠죠.
+반환할 값을 `break` 뒤에 얹어주세요. 값이 `loop` 제어문에서 반환될 겁니다.
 
 ```rust,editable
 fn main() {

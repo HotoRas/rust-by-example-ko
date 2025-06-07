@@ -45,9 +45,9 @@ fn main() {
 }
 ```
 
-### 참고
+### 함께 읽기:
 
-[`#[allow(...)]`][allow], [색상 모델][color_models] and [`enum`][enum]
+[`#[allow(...)]`][allow], [색상 모델][color_models]과 [`enum`][enum]
 
 [allow]: ../../../attribute/unused.md
 [color_models]: https://en.wikipedia.org/wiki/Color_model

@@ -1,7 +1,6 @@
 # match
 
-Rust provides pattern matching via the `match` keyword, which can be used like
-a C `switch`.
+러스트는 패턴 매칭 과정에서 C의 `switch`와 비슷하게 활용할 수 있는 `match` 키워드를 제공합니다.
 
 ```rust,editable
 fn main() {

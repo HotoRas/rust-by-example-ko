@@ -27,6 +27,6 @@ fn main() {
 }
 ```
 
-### See also:
+### 함께 읽:
 
 [Structs](../../../custom_types/structs.md)

@@ -1,7 +1,7 @@
 # while let
 
-Similar to `if let`, `while let` can make awkward `match` sequences
-more tolerable. Consider the following sequence that increments `i`:
+`if let`과 비슷하게, `while let`을 이용해 짜증나는 `match` 시퀸스를 좀 더 통제 가능하게
+바꿀 수 있습니다. `i`를 증가시키기 위한 다음 코드를 생각해 봅시다:
 
 ```rust
 // Make `optional` of type `Option<i32>`
@@ -21,22 +21,22 @@ loop {
             }
             // ^ Requires 3 indentations!
         },
-        // Quit the loop when the destructure fails:
+        // 해체가 불가하면 반복문 밖으로 나갑니다:
         _ => { break; }
-        // ^ Why should this be required? There must be a better way!
+        // ^ 이 줄을 굳이 써야 할까요? 더 나은 방법이 분명 있을 겁니다!
     }
 }
 ```
 
-Using `while let` makes this sequence much nicer:
+`while let`을 이용하면 이 과정이 좀 더 봐줄 만해집니다.
 
 ```rust,editable
 fn main() {
     // Make `optional` of type `Option<i32>`
     let mut optional = Some(0);
 
-    // This reads: "while `let` destructures `optional` into
-    // `Some(i)`, evaluate the block (`{}`). Else `break`.
+    // 이 블록은 `let`이 `optional`을 `Some(i)`로 해체할 수 있으면 내부 블록을
+    // 실행하고, 아니라면 `break`합니다
     while let Some(i) = optional {
         if i > 9 {
             println!("Greater than 9, quit!");
@@ -48,14 +48,14 @@ fn main() {
         // ^ Less rightward drift and doesn't require
         // explicitly handling the failing case.
     }
-    // ^ `if let` had additional optional `else`/`else if`
-    // clauses. `while let` does not have these.
+    // ^ `if let`은 `else`나 `else if`를 붙일 수 있었죠.
+    // 반면 `while let`은 그렇지 않습니다.
 }
 ```
 
-### See also:
+### 함께 읽기:
 
-[`enum`][enum], [`Option`][option], and the [RFC][while_let_rfc]
+[`enum`][enum], [`Option`][option]와 [RFC][while_let_rfc]
 
 [enum]: ../custom_types/enum.md
 [option]: ../std/option.md

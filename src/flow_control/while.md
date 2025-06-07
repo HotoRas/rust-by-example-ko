@@ -1,8 +1,8 @@
 # while
 
-The `while` keyword can be used to run a loop while a condition is true.
+`while` 키워드는 조건이 참인 동안 반복할 때 사용할 수 있습니다.
 
-Let's write the infamous [FizzBuzz][fizzbuzz] using a `while` loop.
+유명한 [FizzBuzz][fizzbuzz] 예제를 `while` 반복을 이용해 작성해봅시다.
 
 ```rust,editable
 fn main() {

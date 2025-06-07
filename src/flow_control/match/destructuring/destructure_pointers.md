@@ -59,6 +59,6 @@ fn main() {
 }
 ```
 
-### 참고
+### 함께 읽기:
 
 [The ref pattern](../../../scope/borrow/ref.md)

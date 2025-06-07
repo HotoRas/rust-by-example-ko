@@ -20,6 +20,6 @@ fn main() {
 }
 ```
 
-### See also:
+### 함께 읽기:
 
 [Tuples](../../../primitives/tuples.md)

@@ -1,6 +1,6 @@
 # if let
 
-For some use cases, when matching enums, `match` is awkward. For example:
+어떤 사용 환경에서는 `match`를 활용하는 게 애매한 경우가 있습니다. 예를 들어:
 
 ```rust
 // Make `optional` of type `Option<i32>`
@@ -19,8 +19,7 @@ match optional {
 
 ```
 
-`if let` is cleaner for this use case and in addition allows various
-failure options to be specified:
+이런 경우 `if let`을 사용하는 것이 더 간단하며, 추가로 실패했을 때의 처리도 가능합니다:
 
 ```rust,editable
 fn main() {
@@ -59,7 +58,7 @@ fn main() {
 }
 ```
 
-In the same way, `if let` can be used to match any enum value:
+같은 방법으로 `if let`을 다른 열거형에 활용할 수도 있습니다:
 
 ```rust,editable
 // Our example enum
@@ -99,9 +98,12 @@ fn main() {
 }
 ```
 
-Another benefit is that `if let` allows us to match non-parameterized enum variants. This is true even in cases where the enum doesn't implement or derive `PartialEq`. In such cases `if Foo::Bar == a` would fail to compile, because instances of the enum cannot be equated, however `if let` will continue to work.
+`if let`의 또다른 장점은 파라미터화되지 않은 열거형 멤버도 매칭할 수 있다는 것입니다.
+그 열거형이 `PartialEq`를 구현하지도 포함하지도 않는 경우에도 가능하죠.
+이런 경우 열거형 내부의 멤버에 접근할 수 없어 `if Foo::Bar == a`는 실패하지만,
+`if let`은 여전히 동작한다는 것입니다.
 
-Would you like a challenge? Fix the following example to use `if let`:
+도전을 즐기시나요? 다음 예제를 `if let`을 이용해 고쳐봅시다:
 
 ```rust,editable,ignore,mdbook-runnable
 // This enum purposely neither implements nor derives PartialEq.
@@ -119,7 +121,7 @@ fn main() {
 }
 ```
 
-### See also:
+### 함께 읽기:
 
 [`enum`][enum], [`Option`][option], and the [RFC][if_let_rfc]
 

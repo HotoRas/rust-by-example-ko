@@ -1,6 +1,6 @@
-# Guards
+# 가드
 
-A `match` *guard* can be added to filter the arm.
+`match` *가드*를 이용해 각 행을 필터링할 수 있습니다.
 
 ```rust,editable
 #[allow(dead_code)]
@@ -24,8 +24,7 @@ fn main() {
 }
 ```
 
-Note that the compiler won't take guard conditions into account when checking
-if all patterns are covered by the match expression.
+컴파일러는 매칭 표현식에서 가능한 모든 경우가 처리 가능하지 않으면 컴파일을 거부한다는 걸 알아두세요.
 
 ```rust,editable,ignore,mdbook-runnable
 fn main() {
@@ -40,7 +39,7 @@ fn main() {
 }
 ```
 
-### See also:
+### 함께 읽기:
 
 [Tuples](../../primitives/tuples.md)
 [Enums](../../custom_types/enum.md)
