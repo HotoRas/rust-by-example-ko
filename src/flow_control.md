@@ -1,4 +1,4 @@
-# Flow of Control
+# 흐름 제어
 
-An essential part of any programming languages are ways to modify control flow:
-`if`/`else`, `for`, and others. Let's talk about them in Rust.
+프로그래밍 언어에서 필수적인 부분은 `if`/`else`, `for` 등과 같이 흐름을 제어하는 방법입니다.
+러스트에서 이게 어떻게 동작하는지 알아봅시다.

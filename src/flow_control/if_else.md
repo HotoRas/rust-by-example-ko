@@ -1,36 +1,35 @@
 # if/else
 
-Branching with `if`-`else` is similar to other languages. Unlike many of them,
-the boolean condition doesn't need to be surrounded by parentheses, and each
-condition is followed by a block. `if`-`else` conditionals are expressions,
-and, all branches must return the same type.
+`if`와 `else`를 이용한 분기는 다른 언어와 유사합니다.
+하지만 대부분과 달리 이진 조건문을 괄호로 감쌀 필요가 없으며, 각 조건문 뒤에는 블록이 따라옵니다.
+`if`-`else` 조건문은 표현식이며, 모든 분기는 같은 타입을 반환해야 합니다.
 
 ```rust,editable
 fn main() {
     let n = 5;
 
     if n < 0 {
-        print!("{} is negative", n);
+        print!("{}은/는 음수입니다", n);
     } else if n > 0 {
-        print!("{} is positive", n);
+        print!("{}은/는 양수입니다", n);
     } else {
-        print!("{} is zero", n);
-    }
+        print!("{}는 0입니다", n);
+    } // 이 블록의 반환값은 Rust 2024부터 `!`이며, 이전 버전에서는 `()`입니다.
 
     let big_n =
         if n < 10 && n > -10 {
-            println!(", and is a small number, increase ten-fold");
+            println!(", 그리고 작은 수이므로 10을 곱하겠습니다.");
 
-            // This expression returns an `i32`.
+            // 이 표현식은 `i32`를 반환합니다.
             10 * n
         } else {
-            println!(", and is a big number, halve the number");
+            println!(", 그리고 큰 수이므로 2로 나누겠습니다.");
 
-            // This expression must return an `i32` as well.
+            // 위 표현식이 `i32`를 반환하므로, 이 표현식도 `i32`를 반환해야 합니다.
             n / 2
-            // TODO ^ Try suppressing this expression with a semicolon.
+            // TODO ^ 이 표현식 뒤에 `;`를 넣어 보세요
         };
-    //   ^ Don't forget to put a semicolon here! All `let` bindings need it.
+    //   ^ 여기에 세미콜론을 붙여야 함을 기억하세요! 모든 `let` 바인딩 끝에는 세미콜론이 필요합니다.
 
     println!("{} -> {}", n, big_n);
 }
