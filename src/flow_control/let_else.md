@@ -12,10 +12,6 @@
 use std::str::FromStr;
 
 fn get_count_item(s: &str) -> (u64, &str) {
-    /*
-    역주: 이 코드에서 Rust 2021까지는 panic!은 (0u64, nullptr)를, Rust 2024부터는 !을 반환합니다.
-    어느 버전이든, 이 함수는 유효한 러스트 코드입니다.
-     */
     let mut it = s.split(' ');
     let (Some(count_str), Some(item)) = (it.next(), it.next()) else {
         // 매칭 실패, panic!
