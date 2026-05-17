@@ -1,7 +1,7 @@
 [book]
 title = "예제로 배우는 러스트 (Rust by Example) 한국어판"
 description = "예제로 배우는 러스트 (Rust by Example)의 한국어판입니다."
-authors = "러스트 한국 커뮤니티"
+authors = ["러스트 한국 커뮤니티"]
 
 [output.html.playpen]
 editable = true
